@@ -20,26 +20,6 @@ spec:
       - name: "my-html-site-1"
         image: "gcr.io/gcp-docker-cicd/my-html-site:latest"
 ---
-apiVersion: "autoscaling/v2beta1"
-kind: "HorizontalPodAutoscaler"
-metadata:
-  name: "my-html-site-hpa-cryp"
-  namespace: "default"
-  labels:
-    app: "my-html-site"
-spec:
-  scaleTargetRef:
-    kind: "Deployment"
-    name: "my-html-site"
-    apiVersion: "apps/v1"
-  minReplicas: 1
-  maxReplicas: 5
-  metrics:
-  - type: "Resource"
-    resource:
-      name: "cpu"
-      targetAverageUtilization: 80
----
 apiVersion: "v1"
 kind: "Service"
 metadata:
