@@ -1,0 +1,10 @@
+
+
+gcloud container clusters create kdc-cluster \
+    --num-nodes=1 \
+    --zone=us-central1-a
+
+
+
+
+gcloud container clusters get-credentials kdc-cluster --zone us-central1-a
